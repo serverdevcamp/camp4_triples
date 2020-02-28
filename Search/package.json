@@ -1,0 +1,42 @@
+{
+  "name": "search",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "nodemon src/index.ts",
+    "build": "tsc -p ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/express": "^4.17.2",
+    "@types/form-data": "^2.5.0",
+    "@types/jsonwebtoken": "^8.3.7",
+    "@types/morgan": "^1.7.37",
+    "@types/multer": "^1.4.2",
+    "@types/node": "^13.7.1",
+    "@types/parse-json": "^4.0.0",
+    "@types/redis": "^2.8.15",
+    "nodemon": "^2.0.2",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "form-data": "^3.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.2",
+    "mysql": "^2.18.1",
+    "parse-json": "^5.0.0",
+    "redis": "^3.0.2",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.22"
+  },
+  "description": ""
+}

@@ -1,0 +1,95 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var app = require('../app');
+var debug = require('debug')('musicserver:server');
+var http = require('http');
+var cluster = require('cluster');
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+var port = process.env.PORT || '7989';
+app.set('port', port);
+let server;
+/**
+ * Create HTTP server.
+ */
+
+
+ /*클러스터 사용
+ 
+ */
+
+ if(cluster.isMaster){
+   let cpuCount = require('os').cpus().length;
+
+   if(process.env.NODE_ENV === 'production'){
+     let memory = (process.env.MEMORY_AVAILABLE * 1e6);
+     console.log(memory);
+
+     let memory_used = (process.memoryUsage().rss *2);
+     console.log(memory_used);
+
+     console.log((memory/memory_used).toFixed());
+     cpuCount = (memory/memory_used).toFixed()-1;
+   }
+
+   while(cpuCount--){
+     cluster.fork();
+   }
+
+   cluster.on('exit', function(worker){
+     cluster.fork();
+     console.log('Worker %d died :-(',worker.id);
+   });
+
+ }
+ else{
+
+  server=http.createServer(app);
+
+  server.listen(port);
+
+  server.on('error',onError);
+
+  server.on('listening', onListening);
+ }
+
+
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  console.log('Worker %d is listening on port %d',cluster.worker.id, port);
+}

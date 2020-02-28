@@ -1,0 +1,14 @@
+[
+  {
+    "name": "default",
+    "type": "mysql",
+    "host": "localhost",
+    "port": 3306,
+    "username": "root",
+    "password": "dydtjs2",
+    "database": "yoyo",
+    "schema": "",
+    "synchronize": false,
+    "entities": ["/src/entities/*.ts"]
+  }
+]
