@@ -1,0 +1,392 @@
+{% extends "base.html" %}
+{% load static %}
+{% block url %}
+<link href="{% static '/css/home.css' %}" rel="stylesheet"/>
+<link href="{% static '/css/profile.css' %}" rel="stylesheet"/>
+<link rel="stylesheet" media="mediatype screen and (max-width: 940px)" href="{% static '/css/profile.css' %}">
+{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity=""
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        crossorigin="anonymous"></script>
+<script>
+    $(function () {
+        $(".g-tabs").each(function () {
+            if ($(this).prop('href') === window.location.href) {
+                $(this).addClass('active');
+                $(this).parents('li').addClass('active');
+            }
+        });
+    });
+</script>
+
+
+<div class="profile-images-div">
+    <!--        배경 이미지-->
+    <img src="{{user_profile.background_pic}}"
+         class="background-img" id="background-img">
+    <!--        프로필 이미지-->
+    <div class="profile-img-box">
+        <img src="{{user_profile.profile_pic}}" style="position: relative; left: 5%; margin-top: 1rem;
+            border-radius: 50%; width: 220px; height: 220px;"
+             class="profile-img" id="profile-img">
+        <a href="#" class="edit-profile-img">Update Image</a>
+    </div>
+    <div class="content-wrap-box">
+        <div class="user-profile-text-box">
+            <div class="profile-header big-title">
+                <h4>{{user_profile.user.nickname}}</h4>
+            </div>
+            <div class="profile-header">
+                <p>{{user_profile.user.user_id}}</p>
+            </div>
+        </div>
+        <div class="upload-header-image-div">
+            <a href="#" class="upload-header-image">Upload Header Image</a>
+        </div>
+    </div>
+</div>
+<div class="vertical-bar">
+    <div class="user-info-bar">
+        <ul class="vertical-bar-ul">
+            <li>
+                <a class="g-tabs" id="profile" href="{% url 'profile' user_id=user.user_id %}" tabindex="0">All</a>
+            </li>
+            <li>
+                <a class="g-tabs" id="mr" href="{% url 'mr' user_id=user.user_id %}" tabindex="1">MR</a>
+            </li>
+            <li>
+                <a class="g-tabs" id="songs" href="{% url 'songs' user_id=user.user_id %}" tabindex="2">Songs</a>
+            </li>
+            <li>
+                <a class="g-tabs" id="likes" href="{% url 'likes' user_id=user.user_id %}" tabindex="3">Likes</a>
+            </li>
+            <li>
+                <a class="g-tabs" id="followings" href="{% url 'followings' user_id=user.user_id %}" tabindex="4">Followings</a>
+            </li>
+            <li>
+                <a class="g-tabs" id="followers" href="{% url 'followers' user_id=user.user_id %}" tabindex="5">Followers</a>
+            </li>
+            <li>
+                <a class="g-tabs" id="comments" href="{% url 'comments' user_id=user.user_id  %}" tabindex="6">Comments</a>
+            </li>
+        </ul>
+    </div>
+    <div class="user-info-bar-btn">
+        <div class="sc-btn-group">
+            <a type="button" class="sc-btn">
+                message
+            </a>
+            <a type="button" class="sc-btn">
+                share
+            </a>
+            <a type="button" class="sc-btn">
+                edit
+            </a>
+        </div>
+    </div>
+    <hr>
+</div>
+<div class="fluid">
+    <div class="home-track-content-box">
+        {% block profilecontent %}
+        {% endblock %}
+    </div>
+    <div class="sidebar-right">
+        <div class="user-side-bar">
+            <!--                followers followings tracks number info-->
+            <article class="sidebar-number-info">
+                <table class="sidebar-number-info-table">
+                    <tbody>
+                    <tr>
+                        <td class="number-info-stat right-border">
+                            <a href="#" class="number-info-link">
+                                <h3 class="number-info-title grey-color">Followers</h3>
+                                <div class="number-info-value grey-color">1</div>
+                            </a>
+                        </td>
+                        <td class="number-info-stat right-border">
+                            <a href="#" class="number-info-link">
+                                <h3 class="number-info-title grey-color">Followings</h3>
+                                <div class="number-info-value grey-color">1</div>
+                            </a>
+                        </td>
+                        <td class="number-info-stat">
+                            <a href="#" class="number-info-link">
+                                <h3 class="number-info-title grey-color">Tracks</h3>
+                                <div class="number-info-value grey-color">3</div>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </article>
+            <!--              side bar  user bio        -->
+            <article class="sidebar-user-info">
+                <p>{{user_profile.bio}}</p>
+            </article>
+            <!--              side bar like songs  -->
+            <article class="sidebar-likes-info">
+                <a class="sidebar-header" href="#">
+                    <h3 class="sidebarheader-big-title">
+                        <span class="sc-icon-like sidebarheader-icon"></span>
+                        <span class="sidebarheader-title">1 likes</span>
+                    </h3>
+                </a>
+                <div class="sidebar-content-box">
+                    {% for i in sl_range %}
+                    <div class="sidebar-likes-each-content">
+                        <div style="display: inline-flex;" class="sidebar-content-track-box" id="side-track-{{i}}">
+                            <img src="/static/imgs/assets/Play.svg"
+                                 id="play-btn-track-side-track-{{i}}" class="play-btn"
+                                 style="position: absolute; width: 40px; height: 30px;
+                            left: 3.2%; top: 25%; display: none; cursor: pointer">
+                            <img src="/static/imgs/assets/music-pic.png" style="width:60px; height: 55px;"
+                                 class="sidebar-track-img" id="side-track-img-{{i}}">
+                        </div>
+                        <div class="sl-text-box">
+                            <p class="artist-link sidebar-likes-text sl-artist"><a href="#">user name</a>
+                                <span class="sidebar-likes-hash"><a href="#">#hash</a></span></p>
+                            <br>
+                            <p class="track-link sidebar-likes-text sl-track">Music title</p>
+                            <!--                                icons                                 -->
+                            <div>
+                                <div>
+                                    <span class="sc-icon-play-count profile-track-icon"></span>
+                                    <span class="sidebarheader-title play-count"></span>
+
+                                    <span class="sc-icon-like profile-track-icon"></span>
+                                    <a href="#">
+                                        <span class="sidebarheader-title">220k</span>
+                                    </a>
+
+                                    <a href="#">
+                                        <span class="sc-icon-comment profile-track-icon"></span>
+                                        <span class="sidebarheader-title">50</span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="sc-icon-share"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </article>
+            <!--              side bar follower info    -->
+            <article class="sidebar-followers-info">
+                <a class="sidebar-header" href="#">
+                    <h3 class="sidebarheader-big-title">
+                        <span class="sc-icon-follow sidebarheader-icon"></span>
+                        </header>
+                        <span class="sidebarheader-title">1 followers</span>
+                    </h3>
+                </a>
+                <div class="sidebar-content-box">
+                    {% for i in sfw_range %}
+                    <div class="sidebar-follower-each-content">
+                        <a href="#"><img src="/static/imgs/assets/music-pic.png"
+                                         style="width:55px; height: 55px; border-radius: 50%; border: #fff solid 5px"
+                                         class="sidebar-track-img" id="side-fw-user-img-{{i}}"></a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </article>
+            <!--                side bar followings info   -->
+            <article class="sidebar-followings-info">
+                <a class="sidebar-header" href="#">
+                    <h3 class="sidebarheader-big-title">
+                        <span class="sc-icon-follow sidebarheader-icon"></span>
+                        <span class="sidebarheader-title">1 followings</span>
+                    </h3>
+                </a>
+                <div class="sidebar-content-box">
+                    {% for i in sfi_range %}
+                    <div class="sidebar-likes-each-content">
+                        <div style="display: inline-flex;" class="sidebar-content-fi-box" id="side-fi-{{i}}">
+                            <img src="/static/imgs/assets/profile-pic.png" id="side-if-img-{{i}}"
+                                 class="sidebar-fi-pic">
+                        </div>
+                        <div class="fi-text-box">
+                            <p class="artist-link sidebar-fi-text fi-artist"><a>user name</a></p>
+                            <!--                                unfollow btn-->
+                            <a href="#">
+                                <span class="sc-icon-unfollow"></span>
+                            </a>
+                            <!--                                icons                                 -->
+                            <div style="margin-top: 5px">
+                                <div>
+                                    <a href="#">
+                                        <span class="sc-icon-follow profile-track-icon"></span>
+                                        <span class="sidebarheader-title">14.4k</span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="sc-icon-track profile-track-icon"></span>
+                                        <span class="artist-link sidebar-fi-text">50</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </article>
+            <!--                side bar comments info    -->
+            <article class="sidebar-comments-info">
+                <a class="sidebar-header" href="#">
+                    <h3 class="sidebarheader-big-title">
+                        <span class="sc-icon-comment sidebarheader-icon"></span>
+                        <span class="sidebarheader-title">2 comments</span>
+                    </h3>
+                </a>
+                <div class="sidebar-content-box">
+                    <div class="sidebar-likes-each-content">
+                        <div class="profile-user-comment-box">
+                            <div class="comment-1-line-text">
+<!--                                <p>on <a href="#"><span-->
+<!--                                        class="artist-link user-profile-comment-to-track">user track</span></a>-->
+<!--                                    <span class="comment-day-box">2 month ago</span></p>-->
+<!--                            </div>-->
+<!--                            <p>"@<span><a href="#">other user</a></span><span>thank you :)</span>"</span></p>-->
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>
+<!--<script>-->
+<!--    var music = document.getElementById('music'); // id for audio element-->
+<!--    var duration = music.duration; // Duration of audio clip, calculated here for embedding purposes-->
+<!--    var pButton = document.getElementById('pButton'); // play button-->
+<!--    var playhead = document.getElementById('playhead'); // playhead-->
+<!--    var timeline = document.getElementById('timeline'); // timeline-->
+
+<!--    // timeline width adjusted for playhead-->
+<!--    var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;-->
+
+<!--    // play button event listenter-->
+<!--    pButton.addEventListener("click", play);-->
+
+<!--    // timeupdate event listener-->
+<!--    music.addEventListener("timeupdate", timeUpdate, false);-->
+
+<!--    // makes timeline clickable-->
+<!--    timeline.addEventListener("click", function (event) {-->
+<!--        moveplayhead(event);-->
+<!--        music.currentTime = duration * clickPercent(event);-->
+<!--    }, false);-->
+
+<!--    // returns click as decimal (.77) of the total timelineWidth-->
+<!--    function clickPercent(event) {-->
+<!--        return (event.clientX - getPosition(timeline)) / timelineWidth;-->
+<!--    }-->
+
+<!--    // makes playhead draggable-->
+<!--    playhead.addEventListener('mousedown', mouseDown, false);-->
+<!--    window.addEventListener('mouseup', mouseUp, false);-->
+
+<!--    // Boolean value so that audio position is updated only when the playhead is released-->
+<!--    var onplayhead = false;-->
+
+<!--    // mouseDown EventListener-->
+<!--    function mouseDown() {-->
+<!--        onplayhead = true;-->
+<!--        window.addEventListener('mousemove', moveplayhead, true);-->
+<!--        music.removeEventListener('timeupdate', timeUpdate, false);-->
+<!--    }-->
+
+<!--    // mouseUp EventListener-->
+<!--    // getting input from all mouse clicks-->
+<!--    function mouseUp(event) {-->
+<!--        if (onplayhead == true) {-->
+<!--            moveplayhead(event);-->
+<!--            window.removeEventListener('mousemove', moveplayhead, true);-->
+<!--            // change current time-->
+<!--            music.currentTime = duration * clickPercent(event);-->
+<!--            music.addEventListener('timeupdate', timeUpdate, false);-->
+<!--        }-->
+<!--        onplayhead = false;-->
+<!--    }-->
+
+<!--    // mousemove EventListener-->
+<!--    // Moves playhead as user drags-->
+<!--    function moveplayhead(event) {-->
+<!--        var newMargLeft = event.clientX - getPosition(timeline);-->
+
+<!--        if (newMargLeft >= 0 && newMargLeft <= timelineWidth) {-->
+<!--            playhead.style.marginLeft = newMargLeft + "px";-->
+<!--        }-->
+<!--        if (newMargLeft < 0) {-->
+<!--            playhead.style.marginLeft = "0px";-->
+<!--        }-->
+<!--        if (newMargLeft > timelineWidth) {-->
+<!--            playhead.style.marginLeft = timelineWidth + "px";-->
+<!--        }-->
+<!--    }-->
+
+<!--    // timeUpdate-->
+<!--    // Synchronizes playhead position with current point in audio-->
+<!--    function timeUpdate() {-->
+<!--        var playPercent = timelineWidth * (music.currentTime / duration);-->
+<!--        playhead.style.marginLeft = playPercent + "px";-->
+<!--        if (music.currentTime == duration) {-->
+<!--            pButton.className = "";-->
+<!--            pButton.className = "play";-->
+<!--        }-->
+<!--    }-->
+
+<!--    //Play and Pause-->
+<!--    function play() {-->
+<!--        // start music-->
+<!--        if (music.paused) {-->
+<!--            music.play();-->
+<!--            // remove play, add pause-->
+<!--            pButton.className = "";-->
+<!--            pButton.className = "pause";-->
+<!--        } else { // pause music-->
+<!--            music.pause();-->
+<!--            // remove pause, add play-->
+<!--            pButton.className = "";-->
+<!--            pButton.className = "play";-->
+<!--        }-->
+<!--    }-->
+
+<!--    // Gets audio file duration-->
+<!--    music.addEventListener("canplaythrough", function () {-->
+<!--        duration = music.duration;-->
+<!--    }, false);-->
+
+<!--    // getPosition-->
+<!--    // Returns elements left position relative to top-left of viewport-->
+<!--    function getPosition(el) {-->
+<!--        return el.getBoundingClientRect().left;-->
+<!--    }-->
+<!--</script>-->
+
+
+<script>
+    $('.sidebar-content-track-box').mouseover(function () {
+        var track_id = this.id;
+        console.log("in" + track_id);
+        $("#play-btn-track-" + track_id).show();
+    });
+    $('.sidebar-content-track-box').mouseleave(function () {
+        var track_id = this.id;
+        console.log("out" + track_id);
+
+        $("#play-btn-track-" + track_id).hide();
+    });
+</script>
+{% endblock %}

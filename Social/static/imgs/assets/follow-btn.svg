@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="68" height="18" viewBox="0 0 68 18">
+  <g id="follow-btn" transform="translate(-1498 -1318)">
+    <g id="사각형_191" data-name="사각형 191" transform="translate(1498 1318)" fill="#fff" stroke="#707070" stroke-width="0.5">
+      <rect width="68" height="18" rx="9" stroke="none"/>
+      <rect x="0.25" y="0.25" width="67.5" height="17.5" rx="8.75" fill="none"/>
+    </g>
+    <text id="follow" transform="translate(1532 1332)" fill="#707070" font-size="18" font-family="Cafe24Oneprettynight, Cafe24 Oneprettynight"><tspan x="-19.818" y="0">follow</tspan></text>
+  </g>
+</svg>

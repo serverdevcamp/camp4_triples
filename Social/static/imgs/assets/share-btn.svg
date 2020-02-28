@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="28.6" height="13" viewBox="0 0 28.6 13">
+  <g id="share-btn" transform="translate(-665 -954)">
+    <g id="사각형_183" data-name="사각형 183" transform="translate(665 954)" fill="#fff" stroke="#a4a4a4" stroke-width="1">
+      <rect width="28.6" height="13" rx="5" stroke="none"/>
+      <rect x="0.5" y="0.5" width="27.6" height="12" rx="4.5" fill="none"/>
+    </g>
+    <text id="share" transform="translate(669 963)" fill="#a4a4a4" font-size="10" font-family="Cafe24Oneprettynight, Cafe24 Oneprettynight"><tspan x="0" y="0">share</tspan></text>
+  </g>
+</svg>

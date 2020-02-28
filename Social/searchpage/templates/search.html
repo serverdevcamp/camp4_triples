@@ -1,0 +1,73 @@
+{% extends "searchbase.html" %}
+{% load static %}
+
+{% block searchcontent %}
+<div class="track-box-contain">
+    {% for i in range %}
+    <div class="content-track-box card" id="profile-track-{{i}}">
+        <div>
+            <a><h4 class="track-link"><b>Music title1111111111111111111111111111111111111</b></h4></a>
+            <a><p class="artist-link">Artist name111133333333333333333333333333333333333333333333333</p></a>
+        </div>
+        <!--           TO DO: id play-btn 이 음악 재생을 위한 플레이 버튼-->
+        <img src="../static/imgs/assets/Play.svg" id="play-btn-track-profile-track-{{i}}" class="play-btn"
+             style="position: absolute;
+                            left: 32%; top: 42%; display: none; cursor: pointer">
+        <img src="../static/imgs/assets/music-pic.png" style="width:100%">
+        <div>
+            <div>
+                <span class="sc-icon-play-count profile-track-icon"></span>
+                <span class="sidebarheader-title play-count"></span>
+
+                <span class="sc-icon-like profile-track-icon"></span>
+                <a href="#">
+                    <span class="sidebarheader-title">220k</span>
+                </a>
+
+                <a href="#">
+                    <span class="sc-icon-comment profile-track-icon"></span>
+                    <span class="sidebarheader-title">50</span>
+                </a>
+                <a href="#">
+                    <span class="sc-icon-share"></span>
+                </a>
+
+            </div>
+            <div class="tag-link">
+                <a><p class="tag-each">#music</p></a>
+                <a><p class="tag-each">#music</p></a>
+                <a><p class="tag-each">#music</p></a>
+                <a><p class="tag-each">#music</p></a>
+                <a><p class="tag-each">#music</p></a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% for i in range %}
+    <div class="profile-user-pic-box"><a href="#">
+
+            <img src="/static/imgs/assets/profile-pic.png" style="position: relative; left: 5%; margin-top: 1rem;
+            border-radius: 50%; width: 200px; height: 200px;"
+                 class="user-profile-img" id="profile-img">
+            <p class="artist-link user-profile-link">user</p>
+        </a></div>
+
+
+    {% endfor %}
+</div>
+
+
+<script>
+    $('.content-track-box').mouseover(function () {
+        var track_id = this.id;
+        console.log("in" + track_id);
+        $("#play-btn-track-" + track_id).show();
+    });
+    $('.content-track-box').mouseleave(function () {
+        var track_id = this.id;
+        console.log("out" + track_id);
+
+        $("#play-btn-track-" + track_id).hide();
+    });
+</script>
+{% endblock %}

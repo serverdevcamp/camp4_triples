@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="{% static '/css/main.css' %}" rel="stylesheet"/>
+    <link href="{% static '/css/home.css' %}" rel="stylesheet"/>
+    {% block url %} {% endblock %}
+    <link rel="stylesheet" media="mediatype screen and (max-width: 940px)" href="{% static '/css/main.css' %}">
+    <link rel="stylesheet" media="mediatype screen and (max-width: 940px)" href="{% static '/css/profile.css' %}">
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity=""
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            crossorigin="anonymous"></script>
+    <script>
+        function dropdown() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches('#main-dropdown-btn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+
+    {% block script%} {% endblock %}
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>yoyo</title>
+    <link rel="icon" type="image/png" href="/static/imgs/assets/logo-white.png">
+</head>
+<body>
+<header>
+    <!--    nav bar(sign in)    -->
+    <nav>
+        <div class="nav justify-content-center">
+            <li id="nav-btn-1" class="nav-item">
+                <a href="#">
+                    <img src="/static/imgs/assets/logo-small.svg">
+                </a>
+            </li>
+            <li id="nav-btn-2" class="nav-item"><a class="nav-link">chart</a></li>
+            <li class="nav-item" id="nav-btn-3">
+<!--                <form class="search-bar nav-link" action="https://search.naver.com/search.naver" method="get">-->
+                    <input type="text" placeholder="search artists or tracks" name="search-bar-input"
+                           id="search-bar-input">
+                    <input type="submit" value=" " name="search-bar-submit" id="search-bar-submit">
+<!--                </form>-->
+            </li>
+            <!--            if user is not authenticated-->
+<!--            <li class="nav-item" id="nav-btn-8"><a href="#id01" class="nav-link">sign in</a></li>-->
+<!--            <li class="nav-item" id="nav-btn-9"><a href="#id02" class="nav-link">create account</a></li>-->
+
+
+            <li class="nav-item" id="nav-btn-4"><a class="nav-link">hyewon1</a></li>
+            <li class="nav-item" id="nav-btn-5"><a class="nav-link">upload</a></li>
+
+            <li class="nav-item" id="nav-btn-6"><a class="nav-link">message</a></li>
+            <div class="dropdown">
+                <li class="nav-item" id="nav-btn-7">
+                    <button onclick="dropdown()" class="nav-link" id="main-dropdown-btn"></button>
+                </li>
+                <div class="dropdown-content" id="myDropdown">
+                    <a class="main-dropdown-item" href="#">about</a>
+                    <a class="main-dropdown-item" href="#">setting</a>
+                    <a class="main-dropdown-item" href="#">sign out</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--    TO DO : navbar (without sign in)    -->
+
+</header>
+
+<div class="main-div">
+    <div id="id01" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <header class="modal-container modal-header-1">
+                    <p>Sign in</p>
+                </header>
+                <form>
+                    <div class="modal-container">
+                        <div class="modal-wrapper">
+                            <div class="modal-grid-one">
+                                <p>Start with</p>
+                                <p style="font-size: 18px">Social account</p>
+                                <div>
+                                    <a>
+                                        <object type="image/svg+xml" data="/static/imgs/assets/google.svg"
+                                                class="object google" style="width: 20%"></object>
+                                    </a>
+                                    <a>
+                                        <object type="image/svg+xml" data="/static/imgs/assets/facebook.svg"
+                                                class="object facebook" style="width: 20%"></object>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="modal-grid-two">
+                                <div>
+
+                                    <div>
+                                        <label for="createaccountemail" style="font-size: 18px">Enter your email</label>
+                                        <input id="createaccountemail" type="email" style="font-size: 18px">
+                                    </div>
+                                    <div>
+                                        <label for="createaccountpassword" style="font-size: 18px">password</label>
+                                        <input id="createaccountpassword" type="password" style="font-size: 18px">
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="modal-grid-three">
+                                <div><!--                                    json 으로 dump? or form submit? -->
+                                    <!--                                        <object type="image/svg+xml" data="../static/imgs/assets/continue-btn.svg"-->
+                                    <!--                                                class="object" style="width: 90%; margin-left: 5%;"></object>-->
+                                    <input type="submit" value=""
+                                           style="background-image: url(/static/imgs/assets/done-btn.svg)"
+                                           class="createaccount-btn">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <a href="#" class="closebtn">x</a>
+    </div>
+
+    <div id="id02" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <header class="modal-container modal-header-1">
+                    <p>Create account</p>
+                </header>
+                <form>
+                    <div class="modal-container">
+                        <div class="modal-wrapper">
+                            <div class="modal-grid-one">
+                                <p>Start with</p>
+                                <p style="font-size: 18px">Social account</p>
+                                <div>
+                                    <a>
+                                        <object type="image/svg+xml" data="/static/imgs/assets/google.svg"
+                                                class="object google" style="width: 20%">
+                                        </object>
+                                    </a>
+                                    <a>
+                                        <object type="image/svg+xml" data="/static/imgs/assets/facebook.svg"
+                                                class="object facebook" style="width: 20%"></object>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="modal-grid-two">
+                                <div style="margin-top: 22%;">
+                                    <label for="signinemail" style="font-size: 18px">Enter your email</label>
+                                    <input id="signinemail" type="email" style="font-size: 18px">
+                                </div>
+                            </div>
+                            <div class="modal-grid-three">
+                                <div><!--                                    json 으로 dump? or form submit? -->
+                                    <input type="submit" value=""
+                                           style="background-image: url(/static/imgs/assets/continue-btn.svg)"
+                                           class="createaccount-btn">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <a href="#" class="closebtn">x</a>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+</div>
+</body>
+</html>

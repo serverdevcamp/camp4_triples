@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" viewBox="0 0 30 30">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="13" height="25" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="dropdown-btn-off" transform="translate(-1795 -25)">
+    <rect id="사각형_165" data-name="사각형 165" width="30" height="30" rx="10" transform="translate(1795 25)" fill="none"/>
+    <g id="Icon_More_Rounded" data-name="Icon / More / Rounded" transform="translate(1804 28)" opacity="0.5" clip-path="url(#clip-path)">
+      <rect id="Box" width="13" height="25" fill="none"/>
+      <path id="패스_2038" data-name="패스 2038" d="M57.9,14.75a2.129,2.129,0,1,0,2,2.125A2.071,2.071,0,0,0,57.9,14.75Zm0-6.375a2.071,2.071,0,0,0-2,2.125,2,2,0,1,0,4,0A2.071,2.071,0,0,0,57.9,8.375Zm0-2.125a2.071,2.071,0,0,0,2-2.125,2,2,0,1,0-4,0A2.071,2.071,0,0,0,57.9,6.25Z" transform="translate(-51.513 2)" fill-rule="evenodd"/>
+    </g>
+  </g>
+</svg>

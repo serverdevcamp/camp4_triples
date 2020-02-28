@@ -1,0 +1,19 @@
+
+{% extends "profilebase.html" %}
+{% load static %}
+
+{% block profilecontent %}
+<div class="track-box-contain">
+    {% for index,user in users %}
+    <a href="{% url 'profile' user_id=user.user.user_id %}">
+        <div class="profile-user-pic-box">
+            <img src="{{user.profile_pic}}" style="position: relative; left: 5%; margin-top: 1rem;
+            border-radius: 50%; width: 150px; height: 150px;"
+                 class="user-profile-img" id="profile-img">
+            <p class="artist-link user-profile-link">{{user.user.nickname}}</p>
+        </div>
+    </a>
+
+    {% endfor %}
+</div>
+{% endblock %}

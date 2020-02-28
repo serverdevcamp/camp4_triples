@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% load static %}
+{% block url %}
+<link href="{% static '/css/home.css' %}" rel="stylesheet"/>
+{% endblock %}
+{% block content %}
+
+<!--    chart top 5-->
+<div class="home-track-content-box">
+    <div class="content-title-box">
+        <h3>Chart top 5</h3>
+        <p>Popular Musics from the yoyo</p>
+    </div>
+    <div class="track-box-contain">
+        {% for i in range %}
+        <div class="content-track-box card" id="popular{{i}}">
+            <!--           TO DO: id play-btn 이 음악 재생을 위한 플레이 버튼-->
+            <img src="../static/imgs/assets/Play.svg" id="play-btn-popular{{i}}" class="play-btn" style="position: absolute;
+                            left: 32%; top: 23%; display: none; cursor: pointer">
+            <img src="../static/imgs/assets/music-pic.png" style="width:100%">
+            <div class="container">
+                <a><h4 class="track-link"><b>Music title1111111111111111111111111111111111111</b></h4></a>
+                <a><p class="artist-link">Artist name111133333333333333333333333333333333333333333333333</p></a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <hr>
+</div>
+
+<!--    pop-->
+<div class="home-track-content-box">
+    <div class="content-title-box">
+        <h3>Pop</h3>
+        <p>New Musics from the yoyo</p>
+    </div>
+    <div class="track-box-contain">
+        {% for i in range %}
+        <div class="content-track-box card" id="pop{{i}}">
+            <!--           TO DO: id play-btn 이 음악 재생을 위한 플레이 버튼-->
+            <img src="../static/imgs/assets/Play.svg" id="play-btn-pop{{i}}" class="play-btn" style="position: absolute;
+                            left: 32%; top: 23%; display: none; cursor: pointer">
+            <img src="../static/imgs/assets/music-pic.png" style="width:100%">
+            <div class="container">
+                <a><h4 class="track-link"><b>Music title1111111111111111111111111111111111111</b></h4></a>
+                <a><p class="artist-link">Artist name111133333333333333333333333333333333333333333333333</p></a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <hr>
+</div>
+
+<!--    hip-hop & rap-->
+<div class="home-track-content-box">
+    <div class="content-title-box">
+        <h3>Hip-hop & rap</h3>
+        <p>New Musics from the yoyo</p>
+    </div>
+    <div class="track-box-contain">
+        {% for i in range %}
+        <div class="content-track-box card" id="rap{{i}}">
+            <!--           TO DO: id play-btn 이 음악 재생을 위한 플레이 버튼-->
+            <img src="../static/imgs/assets/Play.svg" id="play-btn-rap{{i}}" class="play-btn" style="position: absolute;
+                            left: 32%; top: 23%; display: none; cursor: pointer">
+            <img src="../static/imgs/assets/music-pic.png" style="width:100%">
+            <div class="container">
+                <a><h4 class="track-link"><b>Music title1111111111111111111111111111111111111</b></h4></a>
+                <a><p class="artist-link">Artist name111133333333333333333333333333333333333333333333333</p></a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <hr>
+</div>
+
+<!--    indie-->
+<div class="home-track-content-box">
+    <div class="content-title-box">
+        <h3>Indie</h3>
+        <p>New Musics from the yoyo</p>
+    </div>
+    <div class="track-box-contain">
+        {% for i in range %}
+        <div class="content-track-box card" id="indie{{i}}">
+            <!--           TO DO: id play-btn 이 음악 재생을 위한 플레이 버튼-->
+            <img src="../static/imgs/assets/Play.svg" id="play-btn-indie{{i}}" class="play-btn" style="position: absolute;
+                            left: 32%; top: 23%; display: none; cursor: pointer">
+            <img src="../static/imgs/assets/music-pic.png" style="width:100%">
+            <div class="container">
+                <a><h4 class="track-link"><b>Music title1111111111111111111111111111111111111</b></h4></a>
+                <a><p class="artist-link">Artist name111133333333333333333333333333333333333333333333333</p></a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <hr>
+</div>
+
+
+<script>
+    $('.content-track-box').mouseover(function () {
+        var track_id = this.id;
+        $("#play-btn-" + track_id).show();
+    });
+    $('.content-track-box').mouseleave(function () {
+        var track_id = this.id;
+        $("#play-btn-" + track_id).hide();
+    });
+</script>
+{% endblock %}

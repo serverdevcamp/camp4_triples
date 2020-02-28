@@ -1,0 +1,40 @@
+{% extends "createaccountbase.html" %}
+{% load static %}
+
+{% block cacontent %}
+<div class="ca-contain">
+    <form>
+        <div>
+            <label for="ca-email">Email<span style="color: #F2A1A1">*</span></label>
+            <input type="email" id="ca-email">
+        </div>
+        <div>
+            <label for="ca-password">Password<span style="color: #F2A1A1">*</span></label>
+            <input type="password" id="ca-password">
+        </div>
+        <div>
+            <label for="ca-age">Tell us your age</label>
+            <input type="number" id="ca-age">
+        </div>
+        <div>
+            <label for="ca-gender">Gender</label>
+            <select id="ca-gender" name="ca-gender">
+                <option value="none">Indicate your gender</option>
+                <option value="female">Female</option>
+                <option value="male">male</option>
+                <option value="not">Prefer not to say</option>
+            </select>
+        </div>
+        <div>
+            <label for="ca-name">Choose your Display name<span style="color: #F2A1A1;">*</span></label>
+            <input type="text" id="ca-name">
+            <p>Your Display Name can not be what someone use.
+                Your Name or Artist Name are good choices.</p>
+        </div>
+        <div>
+            <input type="submit" style="background-image: url(/static/imgs/assets/get-started-btn.svg)"
+                   class="get-started-btn" value="">
+        </div>
+    </form>
+</div>
+{% endblock %}

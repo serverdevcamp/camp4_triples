@@ -1,0 +1,80 @@
+{% extends "profilebase.html" %}
+{% load static %}
+{% block profilecontent %}
+
+<div class="track-box-contain">
+    {% for index, track in trackposts %}
+
+    <div class="content-track-box card" id="profile-track-{{index}}">
+        <div>
+            <a><h4 class="track-link"><b>{{track.track.title}}</b></h4></a>
+            <a><p class="track-link">{{track.user.nickname}}</p></a>
+        </div>
+
+        <!--           TO DO: id play-btn 이 음악 재생을 위한 플레이 버튼-->
+        <!--            <img src="{% static '/imgs/assets/Play.svg' %}" id="play-btn-track-profile-track-{{index}}" class="play-btn"-->
+        <!--                 style="position: absolute;-->
+        <!--                            left: 32%; top: 42%; display: none; cursor: pointer">-->
+        <div>
+        <img src="{{track.track.image}}" style="width:100%">
+            </div>
+        <div>
+        <audio id="music" controls="controls" preload="true">
+            <source src="{{track.track.track_source}}">
+<!--            <source src="http://www.alexkatz.me/codepen/music/interlude.ogg">-->
+        </audio>
+            </div>
+<!--        <div id="audioplayer">-->
+<!--            <button id="pButton" class="play play-btn-track-profile-track-{{index}}"></button>-->
+<!--            <div id="timeline">-->
+<!--                <div id="playhead"></div>-->
+<!--            </div>-->
+<!--        </div>-->
+        <div>
+            <div>
+                <span class="sc-icon-play-count profile-track-icon"></span>
+                <span class="sidebarheader-title play-count"></span>
+
+                <span class="sc-icon-like profile-track-icon"></span>
+                <a href="#">
+                    <span class="sidebarheader-title">{{track.post.likes_count}}</span>
+                </a>
+
+                <a href="#">
+                    <span class="sc-icon-comment profile-track-icon"></span>
+                    <span class="sidebarheader-title">{{track.post.comments_count}}</span>
+                </a>
+                <a href="#">
+                    <span class="sc-icon-share"></span>
+                </a>
+
+            </div>
+            <div class="tag-link">
+                {% for tags in track.hashtags %}
+                {% if tags is not None %}
+                <a><p class="tag-each">{{tags}}</p></a>
+                {% else %}
+                <a><p class="tag-each"></p></a>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+<script>
+    $('.content-track-box').mouseover(function () {
+        var track_id = this.id;
+        console.log("in" + track_id);
+        $(".play-btn-track-" + track_id).show();
+    });
+    $('.content-track-box').mouseleave(function () {
+        var track_id = this.id;
+        console.log("out" + track_id);
+
+        $(".play-btn-track-" + track_id).hide();
+    });
+</script>
+{% endblock %}

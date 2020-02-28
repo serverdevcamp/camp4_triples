@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="{% static '/css/main.css' %}" rel="stylesheet"/>
+    <link href="{% static '/css/profile.css' %}" rel="stylesheet"/>
+
+    <link rel="stylesheet" media="mediatype screen and (max-width: 940px)" href="{% static '/css/main.css' %}">
+    <link rel="stylesheet" media="mediatype screen and (max-width: 940px)" href="{% static '/css/profile.css' %}">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>yoyo</title>
+    <link rel="icon" type="image/png" href="{% static '/imgs/assets/logo-white.png' %}">
+</head>
+<body>
+<header>
+    <!--    nav bar(sign in)    -->
+    <nav>
+        <div class="nav justify-content-center">
+            <li id="nav-btn-1" class="nav-item">
+                <a href="#">
+                    <img src="{% static '/imgs/assets/logo-small.svg' %}">
+                </a>
+            </li>
+            <li id="nav-btn-2" class="nav-item"><a class="nav-link">chart</a></li>
+            <li class="nav-item" id="nav-btn-3">
+                <form class="search-bar nav-link">
+                    <input type="text" placeholder="search artists or tracks" name="search-bar-input"
+                           id="search-bar-input">
+                    <input type="submit" value=" " name="search-bar-submit" id="search-bar-submit">
+                </form>
+            </li>
+
+            <li class="nav-item" id="nav-btn-4"><a class="nav-link">user</a></li>
+            <li class="nav-item" id="nav-btn-5"><a class="nav-link">upload</a></li>
+
+            <li class="nav-item" id="nav-btn-6"><a class="nav-link">message</a></li>
+            <div class="dropdown">
+                <li class="nav-item" id="nav-btn-7">
+                    <button onclick="dropdown()" class="nav-link" id="main-dropdown-btn"></button>
+                </li>
+                <div class="dropdown-content" id="myDropdown">
+                    <a class="main-dropdown-item" href="#">about</a>
+                    <a class="main-dropdown-item" href="#">setting</a>
+                    <a class="main-dropdown-item" href="#">sign out</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--    TO DO : navbar (without sign in)    -->
+
+</header>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity=""
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        crossorigin="anonymous"></script>
+<script>
+    function dropdown() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function (event) {
+        if (!event.target.matches('#main-dropdown-btn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>
+
+<script>
+    $(function () {
+        $(".g-tabs").each(function () {
+            if ($(this).prop('href') === window.location.href) {
+                $(this).addClass('active');
+                $(this).parents('li').addClass('active');
+            }
+        });
+    });
+</script>
+
+
+<div class="profile-images-div">
+    <!--        배경 이미지-->
+    <img src="{% static 'imgs/assets/track-back-pic.svg' %}"
+         class="background-img" id="background-img">
+    <!--        프로필 이미지-->
+    <div class="track-img-box">
+        <img src="{% static 'imgs/assets/music-pic.png' %}" style="position: relative; left: 5%; margin-top: 2.5rem;
+            width: 220px; height: 220px;"
+             class="track-music-img profile-img" id="track-music-img">
+    </div>
+    <div class="content-wrap-box">
+        <div class="user-profile-text-box">
+            <div class="profile-header big-title">
+                <h4>Music title</h4>
+            </div>
+            <div class="profile-header">
+                <p>artist name</p>
+            </div>
+        </div>
+        <div class="upload-header-image-div">
+            <p class="upload-header-image">5 months ago</p>
+        </div>
+    </div>
+</div>
+<div class="vertical-bar">
+    <div class="user-info-bar-btn">
+        <div class="sc-btn-group">
+            <a type="button" class="sc-btn">
+                message
+            </a>
+            <a type="button" class="sc-btn">
+                share
+            </a>
+            <a type="button" class="sc-btn">
+                edit
+            </a>
+        </div>
+    </div>
+    <hr style="margin-top: 84px;">
+</div>
+<div class="fluid">
+    <div class="home-track-content-box comment-box">
+            <span class="comment-user-pic "
+                  style="background-image: url(/static/imgs/assets/user-pic.png); background-size: 50px; border-radius: 50%;"></span>
+        <form class="comment-form" style="display: inline-block; margin-left: 10px; margin-top: 8px;">
+            <input type="text" placeholder="Write a comment" name="comment-input"
+                   id="comment-input">
+            <input type="submit" value=" " name="comment-submit" id="comment-submit">
+        </form>
+        <div class="track-box-contain">
+            {% for i in range %}
+            <div class="profile-user-comment-box">
+                <div>
+                    <span class="comments-users-pic"
+                          style="background-image: url(/static/imgs/assets/user-pic.png); background-size: 42px; border-radius: 50%;"></span>
+                    <p class="comments-user-name"><a href="#">user</a></p>
+                </div>
+                <div class="comment-1-line-text">
+                    <p>on <a href="#"><span class="artist-link user-profile-comment-to-track">user track</span></a>
+                        <span class="comment-day-box">2 month ago</span></p>
+                    <p>"@<span><a href="#">other user</a></span><span>thank you :)</span>"</span></p>
+                </div>
+            </div>
+            <hr>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="sidebar-right">
+        <div class="user-side-bar">
+            <!--                followers followings tracks number info-->
+            <article class="sidebar-number-info">
+                <table class="sidebar-number-info-table">
+                    <tbody>
+                    <tr>
+                        <td class="number-info-stat right-border">
+                            <a href="#" class="number-info-link">
+                                <h3 class="number-info-title grey-color">Followers</h3>
+                                <div class="number-info-value grey-color">4</div>
+                            </a>
+                        </td>
+                        <td class="number-info-stat right-border">
+                            <a href="#" class="number-info-link">
+                                <h3 class="number-info-title grey-color">Followings</h3>
+                                <div class="number-info-value grey-color">12</div>
+                            </a>
+                        </td>
+                        <td class="number-info-stat">
+                            <a href="#" class="number-info-link">
+                                <h3 class="number-info-title grey-color">Tracks</h3>
+                                <div class="number-info-value grey-color">2</div>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </article>
+            <!--              side bar  user bio        -->
+            <article class="sidebar-followings-info">
+                <a class="sidebar-header" href="#">
+                    <h3 class="sidebarheader-big-title">
+                        <span class="sc-icon-follow sidebarheader-icon"></span>
+                        <span class="sidebarheader-title">user information</span>
+                    </h3>
+                </a>
+                <div class="sidebar-content-box">
+                    <div class="sidebar-likes-each-content">
+                        <div style="display: inline-flex;" class="sidebar-content-fi-box" id="user-info-side">
+                            <img src="/static/imgs/assets/profile-pic.png" id="side-if-img-{{i}}"
+                                 class="sidebar-fi-pic">
+                        </div>
+                        <div class="fi-text-box">
+                            <p class="artist-link sidebar-fi-text fi-artist"><a>user name</a></p>
+                            <!--                                unfollow btn-->
+                            <a href="#">
+                                <span class="sc-icon-unfollow"></span>
+                            </a>
+                            <!--                                icons                                 -->
+                            <div style="margin-top: 5px">
+                                <div>
+                                    <a href="#">
+                                        <span class="sc-icon-follow profile-track-icon"></span>
+                                        <span class="sidebarheader-title">14.4k</span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="sc-icon-track profile-track-icon"></span>
+                                        <span class="artist-link sidebar-fi-text">50</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="sidebar-user-info">
+                <p>hello world !</p>
+            </article>
+            <!--              side bar follower info    -->
+            <article class="sidebar-followers-info">
+                <a class="sidebar-header" href="#">
+                    <h3 class="sidebarheader-big-title">
+                        <span class="sc-icon-follow sidebarheader-icon"></span>
+                        <span class="sidebarheader-title">148 followers</span>
+                    </h3>
+                </a>
+                <div class="sidebar-content-box">
+                    {% for i in sfw_range %}
+                    <div class="sidebar-follower-each-content">
+                        <a href="#"><img src="/static/imgs/assets/music-pic.png"
+                                         style="width:55px; height: 55px; border-radius: 50%; border: #fff solid 5px"
+                                         class="sidebar-track-img" id="side-fw-user-img-{{i}}"></a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </article>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $('.sidebar-content-track-box').mouseover(function () {
+        var track_id = this.id;
+        console.log("in" + track_id);
+        $("#play-btn-track-" + track_id).show();
+    });
+    $('.sidebar-content-track-box').mouseleave(function () {
+        var track_id = this.id;
+        console.log("out" + track_id);
+
+        $("#play-btn-track-" + track_id).hide();
+    });
+</script>
+</body>
+</html>

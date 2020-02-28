@@ -1,0 +1,51 @@
+{% extends "uploadbase.html" %}
+{% load static %}
+{% block utitle %}Track info{% endblock %}
+{% block uploadcontent %}
+<div class="grid-three">
+    <span style="background-image: url(/static/imgs/assets/music-pic.png)" class="span-icons music-pic"></span>
+</div>
+<div class="grid-four">
+    <div>
+        <form>
+            <div>
+                <label for="title">title<span style="color: #F2A1A1">*</span></label>
+                <input id="title" type="text">
+            </div>
+            <div>
+                <label for="genre">genre</label>
+                <select id="genre" name="genre">
+                    <option value="none">none</option>
+                    <option value="pop">pop</option>
+                    <option value="rap">hip-hop & rap</option>
+                    <option value="house">house</option>
+                    <option value="indie">indie</option>
+                    <option value="jazz">jazz</option>
+                    <option value="piano">piano</option>
+                    <option value="randb">R & B</option>
+                    <option value="rock">rock</option>
+                    <option value="techno">techno</option>
+                    <option value="disco">disco</option>
+                    <option value="edm">EDM</option>
+                    <option value="country">country</option>
+                    <option value="classic">classic</option>
+
+                </select>
+            </div>
+            <div>
+                <label for="tag">additional tags</label>
+                <input id="tag" type="text">
+
+            </div>
+            <div>
+                <label for="desc">description</label>
+                <textarea id="desc" rows="7"></textarea>
+            </div>
+            <div>
+                <input type="submit" value="" style="background-image: url(/static/imgs/assets/save-btn.svg)"
+                       class="span-icons save-btn"/>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

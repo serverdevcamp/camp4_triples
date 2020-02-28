@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1009" height="71" viewBox="0 0 1009 71">
+  <defs>
+    <filter id="사각형_170" x="0" y="0" width="1009" height="71" filterUnits="userSpaceOnUse">
+      <feOffset dx="2" dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="get-started-btn" transform="translate(-684.832 -683.5)">
+    <g transform="matrix(1, 0, 0, 1, 684.83, 683.5)" filter="url(#사각형_170)">
+      <rect id="사각형_170-2" data-name="사각형 170" width="1000" height="62" rx="15" transform="translate(2.5 2.5)" fill="#f2a1a1"/>
+    </g>
+    <text id="Get_started" data-name="Get started" transform="translate(1186.832 727.857)" fill="#fff" font-size="38" font-family="Cafe24Oneprettynight, Cafe24 Oneprettynight"><tspan x="-80.123" y="0">Get started</tspan></text>
+  </g>
+</svg>

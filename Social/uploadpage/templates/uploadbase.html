@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block url %}
+<link href="{% static '/css/upload.css' %}" rel="stylesheet"/>
+<link href="{% static '/css/profile.css' %}" rel="stylesheet"/>
+<link rel="stylesheet" media="mediatype screen and (max-width: 940px)" href="{% static '/css/upload.css' %}">
+{% endblock %}
+{% block content %}
+<div class="wrapper">
+    <div class="grid-one">
+        <h1>Upload</h1>
+        <div class="vertical-bar">
+            <div class="user-info-bar">
+                <ul class="vertical-bar-ul">
+                    <li>
+                        <p style="color: #F2A1A1; font-size: 28px;">{% block utitle %}{% endblock %}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% block uploadcontent %}
+    {% endblock %}
+</div>
+{% endblock %}

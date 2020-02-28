@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="556" height="53" viewBox="0 0 556 53">
+  <defs>
+    <filter id="사각형_170" x="0" y="0" width="556" height="53" filterUnits="userSpaceOnUse">
+      <feOffset dx="2" dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="fileupload-btn" transform="translate(-684.5 -681.5)">
+    <g transform="matrix(1, 0, 0, 1, 684.5, 681.5)" filter="url(#사각형_170)">
+      <rect id="사각형_170-2" data-name="사각형 170" width="547" height="44" rx="15" transform="translate(2.5 2.5)" fill="#f2a1a1"/>
+    </g>
+    <text id="File_upload" data-name="File upload" transform="translate(897 715)" fill="#fff" font-size="32" font-family="Cafe24Oneprettynight, Cafe24 Oneprettynight"><tspan x="0" y="0">File upload</tspan></text>
+  </g>
+</svg>

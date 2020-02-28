@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="29" viewBox="0 0 60 29">
+  <g id="sned-btn" transform="translate(-665 -954)">
+    <g id="사각형_183" data-name="사각형 183" transform="translate(665 954)" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="60" height="29" rx="5" stroke="none"/>
+      <rect x="0.5" y="0.5" width="59" height="28" rx="4.5" fill="none"/>
+    </g>
+    <text id="send" transform="translate(672 976)" fill="#707070" font-size="26" font-family="Cafe24Oneprettynight, Cafe24 Oneprettynight"><tspan x="0" y="0">send</tspan></text>
+  </g>
+</svg>

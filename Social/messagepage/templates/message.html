@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+{% block url %}
+<link href="{% static '/css/message.css' %}" rel="stylesheet"/>
+<link rel="stylesheet" media="mediatype screen and (max-width: 940px)" href="{% static '/css/message.css' %}">
+{% endblock %}
+{% block content %}
+
+    <div class="wrapper">
+        <div class="grid-one">
+            <h1>Message</h1>
+            <span class="span-icons new-msg" style="background-image: url(../static/imgs/assets/new-msg-btn.svg)"></span>
+        </div>
+        <div class="grid-two">
+            <div class="track-box-contain">
+                {% for i in range %}
+                <div class="profile-user-comment-box">
+                    <a href="#">
+                        <div>
+                    <span class="room-users-pic"
+                          style="background-image: url(/static/imgs/assets/user-pic.png); background-size: 42px; border-radius: 50%;"></span>
+                            <p class="room-user-name">user</p>
+                        </div>
+                        <div class="room-1-line-text">
+                            <p><span class="artist-link user-profile-comment-to-track">thank you :)</span>
+                                <span class="room-day-box">2 month ago</span></p>
+                        </div>
+                    </a>
+                </div>
+                <hr style="margin-top: 0; margin-bottom: 0" >
+                {% endfor %}
+            </div>
+        </div>
+        <div class="grid-three">
+            <div class="track-box-contain">
+                {% for i in range %}
+                <div class="profile-user-comment-box">
+                    <a href="#">
+                        <div>
+                    <span class="room-users-pic"
+                          style="background-image: url(/static/imgs/assets/user-pic.png); background-size: 42px; border-radius: 50%;"></span>
+                            <p class="room-user-name">user</p>
+                        </div>
+                        <div class="room-1-line-text">
+                            <p><span class="artist-link user-profile-comment-to-track">thank you :)</span>
+                                <span class="room-day-box">2 month ago</span></p>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="grid-four">
+            <div>
+                <p>Write message<span style="color: #F2A1A1">*</span></p>
+                <form>
+                    <textarea rows="4"></textarea>
+                    <span class="span-icons send-btn" style="background-image: url(../static/imgs/assets/send-btn.svg);"></span>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

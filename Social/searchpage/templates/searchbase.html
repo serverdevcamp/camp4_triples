@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+{% block url %}
+<link href="{% static '/css/profile.css' %}" rel="stylesheet"/>
+<link href="{% static '/css/search.css' %}" rel="stylesheet"/>
+<link rel="stylesheet" media="mediatype screen and (max-width: 940px)" href="{% static '/css/search.css' %}">
+{% endblock %}
+{% block content %}
+
+<div class="wrapper">
+    <div class="grid-one">
+        <div>
+            <h1>Search result for "<span>other user</span>"</h1>
+        </div>
+    </div>
+    <div class="grid-two>">
+        <div class="menu--bar-without-url">
+            <ul>
+                <li><a onclick="clickEverything()" id="everything" style="color: #F2A1A1;">Everything</a></li>
+                <li><a onclick="clickTracks()" id="tracks">Tracks</a></li>
+                <li><a onclick="clickArtist()" id="artist">Artist</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="grid-three">
+        {% block searchcontent %}
+        {% endblock %}
+    </div>
+</div>
+<script>
+    function clickEverything() {
+        document.getElementById("everything").style.color = "#F2A1A1";
+        document.getElementById("tracks").style.color = "inherit";
+        document.getElementById("artist").style.color = "inherit";
+    }
+</script>
+<script>
+    function clickTracks() {
+        document.getElementById("tracks").style.color = "#F2A1A1";
+        document.getElementById("everything").style.color = "inherit";
+        document.getElementById("artist").style.color = "inherit";
+    }
+</script>
+<script>
+    function clickArtist() {
+        document.getElementById("artist").style.color = "#F2A1A1";
+        document.getElementById("tracks").style.color = "inherit";
+        document.getElementById("everything").style.color = "inherit";
+    }
+</script>
+{% endblock %}

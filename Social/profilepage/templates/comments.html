@@ -1,0 +1,16 @@
+{% extends "profilebase.html" %}
+{% load static %}
+{% block profilecontent %}
+<div class="track-box-contain">
+    {% for index, comment in comments %}
+    <div class="profile-user-comment-box">
+        <div class="comment-1-line-text">
+            <p>on <a href="#"><span class="artist-link user-profile-comment-to-track">{{ comment.track.title }}</span></a>
+                <span class="comment-day-box">{{ comment.comment.created_dt | timesince }} ago</span></p>
+        </div>
+        <p>"<span>{{  comment.comment.contents  }}</span>"</span></p>
+    </div>
+    <hr>
+    {% endfor %}
+</div>
+{% endblock %}

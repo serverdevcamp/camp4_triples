@@ -1,0 +1,37 @@
+.track-box-contain {
+    overflow-x: auto;
+}
+
+.content-track-box {
+    width: 200px;
+    height: 268px;
+    float: left;
+    margin: 21px;
+}
+
+.container {
+    padding: 2px 16px;
+}
+
+.track-link{
+    cursor: pointer;
+}
+
+.artist-link{
+    cursor: pointer;
+}
+
+.track-link:hover {
+    color: #9A9A9A;
+    /*font-size: 24px;*/
+}
+.artist-link:hover {
+    color: #9A9A9A;
+}
+
+.track-link, .artist-link {
+    overflow: hidden !important;
+    white-space: nowrap;
+    text-overflow: ellipsis !important;
+    word-break: normal;
+}

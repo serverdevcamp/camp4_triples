@@ -1,0 +1,7 @@
+<svg id="Play" xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70">
+  <g id="타원_2" data-name="타원 2" fill="#f2a1a1" stroke="#f2a1a1" stroke-width="2">
+    <circle cx="35" cy="35" r="35" stroke="none"/>
+    <circle cx="35" cy="35" r="34" fill="none"/>
+  </g>
+  <path id="패스_5" data-name="패스 5" d="M13,8,0,0V16Z" transform="translate(31 27)" fill="#fff"/>
+</svg>
